@@ -1,0 +1,27 @@
+/* Tailwind CSS v4: utilitários, breakpoints e tokens ficam concentrados aqui. */
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Barlow Condensed", Impact, "Arial Narrow", sans-serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-ink: #10191e;
+  --color-ink-deep: #0b1215;
+  --color-panel: #1a272b;
+  --color-cream: #f6f4ee;
+  --color-orange: #f68b2a;
+  --color-orange-soft: #ffad5c;
+  --color-orange-ink: #a34203;
+}
+
+/* Apenas regras globais que não são responsabilidade de componentes. */
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+  body { min-width: 320px; }
+  section[id] { scroll-margin-top: 6rem; }
+  ::selection { color: #10191e; background: #ffad5c; }
+  :focus-visible { outline: 3px solid #f68b2a; outline-offset: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
