@@ -1,0 +1,35 @@
+# Dependências e artefatos de build
+node_modules/
+dist/
+coverage/
+.vite/
+.cache/
+.tmp/
+tmp/
+
+# Logs e diagnósticos locais
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+.eslintcache
+
+# Configurações locais e credenciais
+.env
+.env.*
+!.env.example
+*.local
+
+# IDE e sistema operacional
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+
+# Artefatos de ferramentas de teste
+playwright-report/
+test-results/
