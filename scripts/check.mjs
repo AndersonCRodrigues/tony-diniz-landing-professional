@@ -24,6 +24,11 @@ const checks = [
   ["Recortes são definitivos, sem segundo reposicionamento no navegador", !testimonials.includes("fotoPosicao") && !String(await load("src/components/Depoimentos.jsx")).includes("objectPosition")],
   ["Fotos em componente com proporção padronizada 4:5", (await load("src/components/Depoimentos.jsx")).includes("h-40 sm:w-32")],
   ["Seções principais preservadas", ["inicio", "jornada", "metodo", "servicos", "contato"].every((id) => app.includes(`id="${id}"`))],
+  ["SEO: canonical alinhada ao redirecionamento www", html.includes('rel="canonical" href="https://www.tonydinizpersonal.com.br/"')],
+  ["SEO: Open Graph possui URL e imagem", html.includes('property="og:url"') && html.includes('property="og:image"')],
+  ["SEO: dados estruturados distinguem modalidades", html.includes('"@type": "Service"') && html.includes('Treinos enviados pelo WhatsApp')],
+  ["SEO: serviços visíveis incluem WhatsApp", app.includes('title: "Treinos pelo WhatsApp"')],
+  ["SEO: sitemap e robots presentes", (await load("public/sitemap.xml")).includes('www.tonydinizpersonal.com.br') && (await load("public/robots.txt")).includes('sitemap.xml')],
 ];
 for (const asset of ["public/favicon.png", "public/logo-icon.png", "public/tony-training.webp", "public/tony-portrait.webp", ...[1, 2, 3, 4].flatMap((n) => [`public/alunos/aluno-${n}.webp`, `assets/fotos-originais/aluno-${n}.jpeg`])]) {
   try { await access(resolve(root, asset)); checks.push([`Imagem encontrada: ${asset}`, true]); }
