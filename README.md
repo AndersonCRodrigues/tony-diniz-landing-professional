@@ -123,3 +123,13 @@ Antes da publicação, confirme as informações de contato e registro profissio
 ## Créditos e direitos de uso
 
 Projeto desenvolvido para a presença digital de **Tony Diniz**. Fotografias, identidade visual e depoimentos pertencem a seus respectivos titulares. A disponibilização deste código no GitHub não implica concessão automática de licença de reutilização do conteúdo ou das imagens.
+
+## SEO e indexação
+
+O site descreve duas modalidades de atendimento: personal trainer presencial em Maricá (RJ) e envio de treinos pelo WhatsApp para pessoas de outras localidades. O conteúdo deve refletir os serviços efetivamente prestados.
+
+- A URL principal (canônica) é `https://www.tonydinizpersonal.com.br/`, conforme o redirecionamento configurado na hospedagem.
+- `index.html` contém título, descrição, Open Graph, Twitter Card e dados estruturados dos serviços.
+- `public/robots.txt` e `public/sitemap.xml` são publicados na raiz pelo Vite/Vercel.
+- Para acompanhar a indexação, adicione a propriedade no [Google Search Console](https://search.google.com/search-console/about) e envie `https://www.tonydinizpersonal.com.br/sitemap.xml`.
+- A inclusão no Google e o posicionamento nos resultados não são garantidos por metatags ou sitemap.
