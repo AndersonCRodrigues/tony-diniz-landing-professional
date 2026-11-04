@@ -9,7 +9,7 @@ import InstagramIcon from "./components/InstagramIcon.jsx";
 
 // Atualize as informações de contato somente aqui.
 const WHATSAPP_NUMBER = "5521975340558";
-const DEFAULT_MESSAGE = "Olá, Tony! Vim pelo site e gostaria de agendar uma avaliação.";
+const DEFAULT_MESSAGE = "Olá, Tony! Vim pelo site e gostaria de saber sobre o atendimento presencial e os treinos enviados pelo WhatsApp.";
 const whatsappUrl = (message = DEFAULT_MESSAGE) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 const instagramUrl = "https://instagram.com/personaltonydiniz";
@@ -31,7 +31,7 @@ const navigation = [
 const highlights = [
   { icon: ShieldCheck, title: "Atenção individual", description: "Cada treino respeita seu momento." },
   { icon: Activity, title: "Evolução com método", description: "Planejamento, técnica e consistência." },
-  { icon: MapPin, title: "Perto de você", description: "Atendimento em Maricá e região." },
+  { icon: MessageCircle, title: "Também à distância", description: "Receba treinos pelo WhatsApp, onde estiver." },
 ];
 
 const milestones = [
@@ -54,6 +54,7 @@ const services = [
   { icon: Users, number: "03", title: "Mobilidade e longevidade", description: "Trabalho de mobilidade, postura e autonomia, sempre considerando seus limites.", message: "Olá, Tony! Quero saber mais sobre mobilidade e longevidade." },
   { icon: Target, number: "04", title: "Preparação para TAF", description: "Treinamento direcionado às exigências físicas e aos objetivos de cada avaliação.", message: "Olá, Tony! Quero saber mais sobre a preparação para TAF." },
   { icon: ClipboardCheck, number: "05", title: "Avaliação e planejamento", description: "Um ponto de partida para organizar metas, avaliar necessidades e acompanhar sua evolução.", message: "Olá, Tony! Quero agendar uma avaliação individual." },
+  { icon: MessageCircle, number: "06", title: "Treinos pelo WhatsApp", description: "Receba treinos pelo WhatsApp mesmo morando fora de Maricá. Entre em contato para conhecer a forma de envio e contratação.", message: "Olá, Tony! Gostaria de receber treinos pelo WhatsApp. Como funciona?" },
 ];
 
 function Logo() {
@@ -150,7 +151,7 @@ export default function App() {
                 className={`rounded-lg px-4 py-3 text-sm font-bold transition-colors lg:px-0 lg:text-[12px] ${activeSection === id ? "bg-white/8 text-orange lg:bg-transparent" : "text-white/80 hover:bg-white/8 hover:text-white lg:hover:bg-transparent"}`}
               >{label}</a>
             ))}
-            <ExternalCta className={`${buttonBase} mt-1 bg-orange text-ink-deep hover:bg-orange-soft lg:mt-0 lg:min-h-11 lg:px-4`}>Agendar avaliação</ExternalCta>
+            <ExternalCta className={`${buttonBase} mt-1 bg-orange text-ink-deep hover:bg-orange-soft lg:mt-0 lg:min-h-11 lg:px-4`}>Falar com Tony</ExternalCta>
           </nav>
           <button
             id="menu-toggle"
@@ -174,15 +175,15 @@ export default function App() {
             <div className="relative z-20 max-w-2xl">
               <div className="mb-8 flex flex-wrap items-center gap-2.5 text-[10px] font-extrabold tracking-[0.16em] text-white/90 sm:text-[11px]">
                 <span className="size-2 rounded-full bg-orange shadow-[0_0_0_5px_rgba(246,139,42,.15)]" /> PERSONAL TRAINER
-                <span className="text-orange">/</span> MARICÁ · RJ
+                <span className="text-orange">/</span> MARICÁ · RJ + TREINOS PELO WHATSAPP
               </div>
               <h1 id="hero-title" className="font-display text-[clamp(4.5rem,10vw,8.5rem)] leading-[0.83] font-bold tracking-[-0.03em] uppercase sm:text-[clamp(6rem,10vw,8.5rem)] lg:text-[clamp(5.3rem,8.2vw,8.8rem)]">
                 TREINAR<br className="sm:hidden" /> BEM.<br /><span className="text-cream">VIVER</span> <em className="not-italic text-orange">MELHOR.</em>
               </h1>
-              <p className="mt-8 max-w-[515px] text-[15px] leading-[1.9] text-slate-300 sm:text-base">Seu objetivo é único. Seu treino também deve ser. Experiência, atenção e planejamento para transformar o movimento em parte da sua vida.</p>
+              <p className="mt-8 max-w-[515px] text-[15px] leading-[1.9] text-slate-300 sm:text-base">Treino presencial em Maricá (RJ) ou envio de treinos pelo WhatsApp para quem está em outras cidades. Converse sobre seu objetivo e encontre o formato mais adequado.</p>
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-                <ExternalCta className={primaryButton}>Agendar minha avaliação</ExternalCta>
-                <a href="#metodo" className={`${buttonBase} px-1 text-cream hover:text-orange-soft`}>Conheça meu método <ArrowRight size={18} aria-hidden="true" /></a>
+                <ExternalCta className={primaryButton} message="Olá, Tony! Quero agendar uma avaliação presencial em Maricá.">Atendimento presencial</ExternalCta>
+                <ExternalCta className={`${buttonBase} border border-white/25 text-cream hover:border-orange hover:text-orange-soft`} message="Olá, Tony! Quero saber como receber treinos pelo WhatsApp.">Treinos pelo WhatsApp</ExternalCta>
               </div>
               <div className="mt-9 flex flex-wrap items-center gap-5 text-[11px] font-bold text-slate-300">
                 <span className="inline-flex items-center gap-2"><Check size={16} className="text-orange" aria-hidden="true" /> Treino individualizado</span>
@@ -273,18 +274,18 @@ export default function App() {
           <div className={container}>
             <div className="mb-11 grid items-end gap-6 lg:grid-cols-[1fr_330px] lg:gap-15">
               <div><SectionEyebrow number="03">Especialidades</SectionEyebrow><h2 id="services-title" className={`${headline} text-ink`}>SEU OBJETIVO.<br /><em className="not-italic text-orange-ink">SEU CAMINHO.</em></h2></div>
-              <p className="max-w-lg text-sm leading-[1.9] text-slate-600">Seja qual for seu ponto de partida, o acompanhamento é estruturado para respeitar suas necessidades e o que você quer conquistar.</p>
+              <p className="max-w-lg text-sm leading-[1.9] text-slate-600">Seja presencialmente em Maricá ou recebendo treinos pelo WhatsApp, conheça as opções e converse sobre o que você deseja alcançar.</p>
             </div>
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-6">
-              {services.map(({ icon: Icon, number, title, description, message }, index) => (
-                <article key={number} className={`group flex min-h-76 flex-col rounded-xl border border-[#d6d9d3] bg-[#faf9f5] p-6 transition-all duration-200 hover:-translate-y-1 hover:border-orange/65 hover:shadow-[0_20px_40px_rgba(22,32,33,.09)] sm:p-7 ${index < 3 ? "xl:col-span-2" : "xl:col-span-3"}`}>
-                  <div className="flex items-start justify-between gap-4"><span className="grid size-13 place-items-center rounded-xl bg-[#f9e6d7] text-orange-ink"><Icon size={25} strokeWidth={1.7} aria-hidden="true" /></span><span className="font-display text-lg tracking-wide text-slate-500">{number} / 05</span></div>
+              {services.map(({ icon: Icon, number, title, description, message }) => (
+                <article key={number} className={`group flex min-h-76 flex-col rounded-xl border border-[#d6d9d3] bg-[#faf9f5] p-6 transition-all duration-200 hover:-translate-y-1 hover:border-orange/65 hover:shadow-[0_20px_40px_rgba(22,32,33,.09)] sm:p-7 xl:col-span-2`}>
+                  <div className="flex items-start justify-between gap-4"><span className="grid size-13 place-items-center rounded-xl bg-[#f9e6d7] text-orange-ink"><Icon size={25} strokeWidth={1.7} aria-hidden="true" /></span><span className="font-display text-lg tracking-wide text-slate-500">{number} / 06</span></div>
                   <div className="mt-11 flex-1"><h3 className="max-w-sm font-display text-[32px] leading-[1.03] font-bold uppercase text-ink">{title}</h3><p className="mt-3 max-w-md text-xs leading-[1.8] text-slate-600">{description}</p></div>
                   <ExternalCta message={message} className="mt-4 inline-flex min-h-11 items-center gap-2 self-start text-xs font-extrabold text-orange-ink transition-colors hover:text-ink">Saiba mais</ExternalCta>
                 </article>
               ))}
             </div>
-            <div className="mt-7 flex flex-wrap items-center gap-3 border-t border-ink/15 pt-6 text-xs leading-[1.7] text-slate-600"><MapPin size={19} className="shrink-0 text-orange-ink" aria-hidden="true" /><span>Atendimento no Centro de Maricá, em domicílio, condomínios e empresas.</span><a href="#contato" className="inline-flex items-center gap-2 font-extrabold text-orange-ink hover:text-ink sm:ml-auto">Como começar <ArrowRight size={16} aria-hidden="true" /></a></div>
+            <div className="mt-7 flex flex-wrap items-center gap-3 border-t border-ink/15 pt-6 text-xs leading-[1.7] text-slate-600"><MapPin size={19} className="shrink-0 text-orange-ink" aria-hidden="true" /><span>Atendimento presencial em Maricá e região, além de treinos enviados pelo WhatsApp para outras localidades.</span><a href="#contato" className="inline-flex items-center gap-2 font-extrabold text-orange-ink hover:text-ink sm:ml-auto">Como começar <ArrowRight size={16} aria-hidden="true" /></a></div>
           </div>
         </section>
 
@@ -295,15 +296,16 @@ export default function App() {
             <div className="max-w-2xl">
               <SectionEyebrow number="05">O próximo passo</SectionEyebrow>
               <h2 id="contact-title" className={`${headline} text-ink`}>SEU MELHOR MOMENTO<br />PODE <em className="not-italic text-[#74370a]">COMEÇAR AGORA.</em></h2>
-              <p className="mt-7 max-w-[480px] text-[15px] leading-[1.9] text-[#4b2e19]">Não precisa saber por onde começar. Me conte seu objetivo e vamos conversar sobre o acompanhamento ideal para você.</p>
-              <div className="mt-9 flex items-start gap-3 text-[#44250d]"><MapPin size={20} className="mt-0.5 shrink-0" aria-hidden="true" /><div className="flex flex-col gap-1"><strong className="text-xs">Maricá · Rio de Janeiro</strong><span className="text-xs">Atendimento presencial e em domicílio</span></div></div>
+              <p className="mt-7 max-w-[480px] text-[15px] leading-[1.9] text-[#4b2e19]">Você pode treinar presencialmente em Maricá ou receber treinos pelo WhatsApp mesmo estando em outra cidade. Conte seu objetivo para saber como funciona.</p>
+              <div className="mt-9 flex items-start gap-3 text-[#44250d]"><MapPin size={20} className="mt-0.5 shrink-0" aria-hidden="true" /><div className="flex flex-col gap-1"><strong className="text-xs">Maricá · Rio de Janeiro</strong><span className="text-xs">Atendimento presencial e envio de treinos pelo WhatsApp</span></div></div>
             </div>
             <div className="rounded-xl border border-white/10 bg-ink p-6 text-white shadow-[0_30px_65px_rgba(63,31,6,.2)] sm:p-9">
               <div className="flex items-center justify-between text-[11px] font-extrabold tracking-[0.15em] text-orange-soft"><span>VAMOS CONVERSAR?</span><MessageCircle size={24} aria-hidden="true" /></div>
               <h3 className="mt-11 font-display text-[clamp(3.4rem,5vw,4.7rem)] leading-[0.89] font-bold uppercase">PRONTO PARA<br /><em className="not-italic text-orange">COMEÇAR?</em></h3>
               <p className="mt-5 max-w-sm text-sm leading-[1.85] text-slate-300">O primeiro contato é simples e sem complicação. Escolha como prefere falar comigo.</p>
               <div className="mt-7 grid gap-3">
-                <ExternalCta className={`${primaryButton} w-full justify-between`} icon={false}><MessageCircle size={19} aria-hidden="true" /> Conversar no WhatsApp <ArrowUpRight size={18} aria-hidden="true" /></ExternalCta>
+                <ExternalCta className={`${primaryButton} w-full justify-between`} icon={false} message="Olá, Tony! Quero saber sobre atendimento presencial em Maricá."><MessageCircle size={19} aria-hidden="true" /> Atendimento presencial <ArrowUpRight size={18} aria-hidden="true" /></ExternalCta>
+                <ExternalCta className={`${buttonBase} w-full justify-between border border-orange/50 text-orange-soft hover:border-orange hover:bg-white/5`} icon={false} message="Olá, Tony! Quero saber como receber treinos pelo WhatsApp."><MessageCircle size={19} aria-hidden="true" /> Receber treinos pelo WhatsApp <ArrowUpRight size={18} aria-hidden="true" /></ExternalCta>
                 <a href={instagramUrl} className={`${buttonBase} w-full justify-between border border-white/25 bg-transparent text-white hover:border-orange hover:text-orange-soft`} target="_blank" rel="noopener noreferrer"><InstagramIcon size={19} aria-hidden="true" /> Ver meu Instagram <ArrowUpRight size={18} aria-hidden="true" /></a>
               </div>
               <span className="mt-5 flex items-center justify-center gap-2 text-center text-[10px] text-slate-300"><Check size={14} className="text-orange" aria-hidden="true" /> WhatsApp abre com uma mensagem pronta</span>
@@ -312,12 +314,12 @@ export default function App() {
         </section>
       </main>
 
-      <ExternalCta aria-hidden={!hasScrolled} tabIndex={hasScrolled ? 0 : -1} className={`${hasScrolled ? "visible translate-y-0 opacity-100" : "invisible pointer-events-none translate-y-8 opacity-0"} ${primaryButton} fixed inset-x-4 bottom-4 z-40 flex justify-between shadow-2xl transition-all duration-300 sm:inset-x-auto sm:right-6 sm:bottom-6 lg:hidden`} icon={false}><MessageCircle size={19} aria-hidden="true" /> Agendar avaliação <ArrowUpRight size={18} aria-hidden="true" /></ExternalCta>
+      <ExternalCta aria-hidden={!hasScrolled} tabIndex={hasScrolled ? 0 : -1} className={`${hasScrolled ? "visible translate-y-0 opacity-100" : "invisible pointer-events-none translate-y-8 opacity-0"} ${primaryButton} fixed inset-x-4 bottom-4 z-40 flex justify-between shadow-2xl transition-all duration-300 sm:inset-x-auto sm:right-6 sm:bottom-6 lg:hidden`} icon={false}><MessageCircle size={19} aria-hidden="true" /> Falar sobre meu treino <ArrowUpRight size={18} aria-hidden="true" /></ExternalCta>
 
       <footer className="bg-[#0a1115] pt-12 pb-22 sm:pb-0">
         <div className={`${container} flex flex-wrap items-center gap-6 pb-10 md:gap-12`}>
           <a href="#inicio" aria-label="Tony Diniz — voltar ao início" className="inline-flex shrink-0 rounded-md"><Logo /></a>
-          <p className="text-xs leading-[1.9] text-slate-400">Treinamento com experiência, atenção e propósito.<br />Maricá / RJ · CREF 3345P</p>
+          <p className="text-xs leading-[1.9] text-slate-400">Treino presencial em Maricá e envio de treinos pelo WhatsApp.<br />CREF 3345P</p>
           <div className="ml-auto flex items-center gap-2">
             <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Tony Diniz" className="grid size-11 place-items-center rounded-lg border border-white/20 text-white transition-colors hover:border-orange hover:bg-orange hover:text-ink"><InstagramIcon size={19} aria-hidden="true" /></a>
             <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Tony Diniz" className="grid size-11 place-items-center rounded-lg border border-white/20 text-white transition-colors hover:border-orange hover:bg-orange hover:text-ink"><MessageCircle size={19} aria-hidden="true" /></a>
